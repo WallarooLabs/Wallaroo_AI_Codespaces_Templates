@@ -1,0 +1,19 @@
+apiVersion: kots.io/v1beta1
+kind: ConfigValues
+spec:
+    values:
+        ingress_mode:
+            value: "none"
+        domainPrefix:
+            default: ""
+            value: 
+        domainSuffix:
+            value: app.github.dev
+        dashboard_redirect_uri:
+            value: literate-yodel-4pg4977rvh7xw-8443.app.github.dev
+        dashboard_auth_svc_url:
+            value: https://literate-yodel-4pg4977rvh7xw-8080.app.github.dev
+        keycloak_fqdn:
+            value: literate-yodel-4pg4977rvh7xw-8080.app.github.dev
+        jupyter_fqdn:
+            value: literate-yodel-4pg4977rvh7xw-8081.app.github.dev

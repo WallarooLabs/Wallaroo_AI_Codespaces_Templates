@@ -1,0 +1,60 @@
+{
+	"name": "Wallaroo Codespaces Data Science",
+	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+	"features": {
+		"ghcr.io/mpriscella/features/kind:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {
+			"jqVersion": "latest",
+			"yqVersion": "latest"
+		}
+	},
+	"onCreateCommand": ".devcontainer/Wallaroo-Platform-DS/onCreateCommand.sh",
+	"postCreateCommand": ".devcontainer/Wallaroo-Platform-DS/postCreateCommand.sh",
+	"postStartCommand": ".devcontainer/Wallaroo-Platform-DS/postStartCommand.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"ms-kubernetes-tools.kind-vscode",
+				"ms-toolsai.jupyter",
+				"ms-python.python"
+			]
+		}
+	},
+	"forwardPorts": [ 8080, 8443, 8081],
+	"portsAttributes": {
+		"8443": {
+			"label": "dashboard",
+			"protocol": "https",
+			"onAutoForward": "ignore"
+
+		},
+		"8080": {
+			"label": "keycloak",
+			"protocol": "http",
+			"onAutoForward": "ignore"
+
+		},
+		"8081": {
+			"label": "hub",
+			"protocol": "http",
+			"onAutoForward": "ignore"
+
+		}
+	},
+	"secrets": {
+	  "WALLAROO_LICENSE": {
+	    "description": "Your base64 encoded Wallaroo license file.",
+	    "documentationUrl": "https://docs.wallaroo.ai/202204/wallaroo-operations-guide/wallaroo-install-guides/wallaroo-community-install-guides/wallaroo-community-install/wallaroo-community-register-account/"
+	  }
+	},
+	"hostRequirements": {
+	   "cpus": 16,
+	   "memory": "64gb",
+	   "storage": "128gb"
+	}
+
+
+}
+

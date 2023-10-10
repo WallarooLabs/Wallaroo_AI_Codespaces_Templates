@@ -1,0 +1,31 @@
+apiVersion: kots.io/v1beta1
+kind: ConfigValues
+spec:
+    values:
+        ingress_mode:
+            value: "none"
+        domainPrefix:
+            default: ""
+            value: $DOMAIN_PREFIX
+        domainSuffix:
+            value: $DOMAIN_SUFFIX
+        dashboard_redirect_uri:
+            value: $DASH_URL
+        dashboard_auth_svc_url:
+            value: https://$AUTH_URL
+        keycloak_fqdn:
+            value: $AUTH_URL
+        jupyter_fqdn:
+            value: $CODESPACE_NAME-8081.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
+        codespace_domains_enabled:
+            value: "1"
+        codespace_domains_dashboard_fqdn:
+            value: $DASH_URL
+        codespace_domains_keycloak_fqdn:
+            value: $AUTH_URL
+        codespace_domains_jupyter_fqdn:
+            value: $CODESPACE_NAME-8081.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN            
+        jupyter_mode:
+            value: hub
+        mothership_fqdn:
+            value: api.$MS_BASE_URL
