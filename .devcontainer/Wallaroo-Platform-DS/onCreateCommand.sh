@@ -1,3 +1,18 @@
+# wait for docker
+for i in $(seq 90); do
+    docker ps
+    status=$?
+    if [ "$status" -eq 0 ]; then
+        echo "docker worked after $(( i * 10 )) sec"
+        break
+    fi
+    printf '.'
+    sleep 10
+done
+docker ps
+status=$?
+[ "$status" -eq 0 ] || exit 1
+
 # # Add local registry https://kind.sigs.k8s.io/docs/user/local-registry/
 # # 1. Create registry container unless it already exists
 reg_name='kind-registry'
