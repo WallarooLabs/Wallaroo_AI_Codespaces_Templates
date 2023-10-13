@@ -22,6 +22,21 @@ if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true
     -d --restart=always -p "127.0.0.1:${reg_port}:5000" --name "${reg_name}" \
     registry:2
 fi
+
+# wait for docker
+for i in $(seq 90); do
+    docker ps
+    status=$?
+    if [ "$status" -eq 0 ]; then
+        echo "docker worked after $(( i * 10 )) sec"
+        break
+    fi
+    printf '.'
+    sleep 10
+done
+docker ps
+status=$?
+[ "$status" -eq 0 ] || exit 1
 # 2. Create kind cluster
 kind create cluster --image=kindest/node:v1.26.0 --config=./.devcontainer/Wallaroo-Platform-DS/wallaroo-kind.yaml 
 
