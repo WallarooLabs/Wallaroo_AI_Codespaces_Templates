@@ -18,8 +18,11 @@ for i in $(seq 90); do
         kubectl -n wallaroo patch svc keycloak  --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"replace","path":"/spec/ports/0/nodePort","value":30526}]'
         kubectl -n wallaroo patch svc api-lb  --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"replace","path":"/spec/ports/1/nodePort","value":30525}]'
         kubectl -n wallaroo patch svc proxy-public  --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"replace","path":"/spec/ports/0/nodePort","value":30527}]'
+        sleep .5
         gh codespace ports visibility -c $CODESPACE_NAME 8081:public
+        sleep .5
         gh codespace ports visibility -c $CODESPACE_NAME 8080:public
+        sleep .5
         # gh codespace ports visibility -c $CODESPACE_NAME 8443:public
 
         # nohup kubectl port-forward services/api-lb 8443:443 -n wallaroo &> api-lb.out.out &
