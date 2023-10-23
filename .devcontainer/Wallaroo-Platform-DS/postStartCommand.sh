@@ -1,7 +1,9 @@
 for i in $(seq 90); do
     if [ "ready" = "$(kubectl kots app-status wallaroo -n wallaroo | jq -r .appstatus.state)" ]; then
         gh codespace ports visibility -c $CODESPACE_NAME 8081:public
+        sleep .5
         gh codespace ports visibility -c $CODESPACE_NAME 8080:public
+        sleep .5
         # gh codespace ports visibility -c $CODESPACE_NAME 8443:public
         sed -i '/WALLAROO_START/, /WALLAROO_END/ s/Starting/Ready/' README.md
         echo "kots install SUCCESS after $(( i * 10 )) sec"
