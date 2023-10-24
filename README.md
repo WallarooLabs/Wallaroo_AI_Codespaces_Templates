@@ -46,21 +46,6 @@ To see the installation process in action, use one of the following options:
 
 Once the entry "Finished configuring codespace" is displayed, the Wallaroo Community installation is complete.
 
-### Network Configure
-
-Before connecting to the Wallaroo Community instance, the following codespaces ports must be set to **public**.  This step is not required for users who will be the only one accessing Wallaroo Community though their codespace.
-
-* **keycloak**: Port `8080`, used for authentication to the Wallaroo service.
-* **hub**: Port `8081`, used for the JupyterHub service.
-* **dashboard**: Port `8443`, used for the Wallaroo Dashboard.
-
-To update the network settings:
-
-1. Access the Wallaroo Community codespace settings by entering either `Control-Shift-P` or `Command-Shift-P` (for MacOS systems) and select **View: Toggle Terminal**.
-1. Right click **keycloak**, **hub**, and **dashboard** and set **Port Visibility** to **Public**.
-
-![](./images/wallaroo-community-github-codespace/github-codespaces-network-visibility-setting.gif)
-
 ## Wallaroo Community First Login
 
 If this is your first login, you will receive an email invitation for the email address connected to this URL with a temporary password.
