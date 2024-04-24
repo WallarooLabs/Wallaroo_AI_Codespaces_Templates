@@ -38,7 +38,7 @@ docker ps
 status=$?
 [ "$status" -eq 0 ] || exit 1
 # 2. Create kind cluster
-kind create cluster --image=kindest/node:v1.26.0 --config=./.devcontainer/Wallaroo-Platform-DS/wallaroo-kind.yaml 
+kind create cluster --image=kindest/node:v1.28.0 --config=./.devcontainer/Wallaroo-Platform-DS/wallaroo-kind.yaml 
 
 # # 3. Add the registry config to the nodes
 # #
@@ -77,7 +77,7 @@ fi
 # EOF
 
 # 6. install replicated cli
-curl https://kots.io/install/1.81.0 |  REPL_INSTALL_PATH=/usr/local/bin sudo bash
+curl https://kots.io/install/1.107.2 |  REPL_INSTALL_PATH=/usr/local/bin sudo bash
 
 # 7. install oras
 VERSION="1.1.0"
