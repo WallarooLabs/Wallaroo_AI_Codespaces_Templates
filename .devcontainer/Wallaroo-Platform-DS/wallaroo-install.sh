@@ -10,7 +10,7 @@ envsubst < ./.wallaroo/replicated-config.yaml.templ > ./.wallaroo/replicated-con
 # License is stored in a gh secret
 echo $WALLAROO_LICENSE | base64 -di > ./.wallaroo/wallaroo_license.yaml
 
-kubectl kots install wallaroo/ci --shared-password=password --namespace=wallaroo --skip-preflights=true --no-port-forward --license-file=./.wallaroo/wallaroo_license.yaml --config-values ./.wallaroo/replicated-config.yaml
+kubectl kots install wallaroo/ce --shared-password=password --namespace=wallaroo --skip-preflights=true --no-port-forward --license-file=./.wallaroo/wallaroo_license.yaml --config-values ./.wallaroo/replicated-config.yaml
 
 for i in $(seq 90); do
     if [ "ready" = "$(kubectl kots app-status wallaroo -n wallaroo | jq -r .appstatus.state)" ]; then
