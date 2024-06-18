@@ -23,23 +23,11 @@
 			]
 		}
 	},
-	"forwardPorts": [ 8080, 8443, 8081],
+	"forwardPorts": [8443],
 	"portsAttributes": {
 		"8443": {
 			"label": "dashboard",
 			"protocol": "https",
-			"onAutoForward": "ignore"
-
-		},
-		"8080": {
-			"label": "keycloak",
-			"protocol": "http",
-			"onAutoForward": "ignore"
-
-		},
-		"8081": {
-			"label": "hub",
-			"protocol": "http",
 			"onAutoForward": "ignore"
 
 		}
