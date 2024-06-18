@@ -38,7 +38,7 @@ docker ps
 status=$?
 [ "$status" -eq 0 ] || exit 1
 # 2. Create kind cluster
-kind create cluster --image=kindest/node:v1.28.0 --config=./.devcontainer/Wallaroo-Platform-DS/wallaroo-kind.yaml 
+kind create cluster --image=kindest/node:v1.29.0 --config=./.devcontainer/Wallaroo-Platform-DS/wallaroo-kind.yaml 
 
 # # 3. Add the registry config to the nodes
 # #
