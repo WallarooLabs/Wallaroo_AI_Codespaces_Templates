@@ -4,6 +4,27 @@ spec:
     values:
         ingress_mode:
             value: "none"
+        domainPrefix:
+            default: ""
+            value: $CODESPACE_NAME-8443
+        domainSuffix:
+            value: $DOMAIN_SUFFIX
+        dashboard_redirect_uri:
+            value: https://$CODESPACE_NAME-8443.$DOMAIN_SUFFIX
+        dashboard_auth_svc_url:
+            value: https://$CODESPACE_NAME-8443.$DOMAIN_SUFFIX
+        keycloak_fqdn:
+            value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX
+        jupyter_fqdn:
+            value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX/hub
+        codespace_domains_enabled:
+            value: "1"
+        codespace_domains_dashboard_fqdn:
+            value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX
+        codespace_domains_keycloak_fqdn:
+            value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX
+        codespace_domains_jupyter_fqdn:
+            value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX/hub           
         wallaroo_domain:
             value: $CODESPACE_NAME-8443.$DOMAIN_SUFFIX           
         jupyter_mode:
