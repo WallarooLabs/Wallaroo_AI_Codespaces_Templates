@@ -1,6 +1,4 @@
 #/usr/bin/env bash
-kubectl apply -f ./.devcontainer/Wallaroo-Platform-DS/wallaroo-storage.yaml
-
 export DOMAIN_SUFFIX=$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
 
 export DASH_URL=$CODESPACE_NAME-8443.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
