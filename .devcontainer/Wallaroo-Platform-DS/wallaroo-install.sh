@@ -1,10 +1,6 @@
 #/usr/bin/env bash
 export DOMAIN_SUFFIX=$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
 
-export DASH_URL=$CODESPACE_NAME-8443.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
-
-export AUTH_URL=$CODESPACE_NAME-8443.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
-
 export MS_BASE_URL=$(echo $WALLAROO_LICENSE| base64 -di | yq -r '.spec.entitlements.domainSuffix.value')
 envsubst < ./.wallaroo/replicated-config.yaml.templ > ./.wallaroo/replicated-config.yaml
 
